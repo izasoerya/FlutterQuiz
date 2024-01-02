@@ -1,3 +1,6 @@
+# Dart Files only in lib folder
+!lib/**/*.dart
+
 # Miscellaneous
 *.class
 *.log
@@ -41,7 +44,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-# Dart Files only in lib folder
-!lib/**/*.dart
-windows
