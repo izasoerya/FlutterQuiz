@@ -5,13 +5,11 @@ class SelectionPage extends StatelessWidget {
   final List<Color> themeColour;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-        colors: themeColour,
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-      )),
+    return const Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[Text("Select a quiz!"), Text("Coming soon!")],
+      ),
     );
   }
 }
