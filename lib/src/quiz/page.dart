@@ -8,11 +8,20 @@ class QuestionPage extends StatefulWidget {
   State<QuestionPage> createState() => _QuestionPage();
 }
 
+int iterQuestion = 0;
+
 class _QuestionPage extends State<QuestionPage> {
-  final QuizQuestion questionOne = listQuestions[0];
+  void continueQuestion() {
+    setState(() {
+      iterQuestion == listQuestions.length - 1
+          ? iterQuestion = 0
+          : iterQuestion++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final currentQuestion = listQuestions[iterQuestion];
     return Center(
       child: Container(
         margin: const EdgeInsets.all(25),
@@ -25,11 +34,11 @@ class _QuestionPage extends State<QuestionPage> {
               Text(
                 style: const TextStyle(color: Colors.white, fontSize: 20),
                 textAlign: TextAlign.center,
-                listQuestions[0].questions,
+                currentQuestion.questions,
               ),
               const Padding(padding: EdgeInsets.only(top: 30)),
-              ...questionOne.shuffleAnswer().map((answer) {
-                return AnswerButton(textButton: answer, task: () {});
+              ...currentQuestion.shuffleAnswer().map((answer) {
+                return AnswerButton(textButton: answer, task: continueQuestion);
               }),
             ],
           ),
