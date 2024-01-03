@@ -21,7 +21,7 @@ class _QuizPage extends State<QuizPage> {
 
   void changeState() {
     setState(() {
-      currentState = const SelectionPage(themeColour: themeColour);
+      currentState = const QuestionPage();
     });
   }
 
