@@ -9,23 +9,30 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPage extends State<QuestionPage> {
+  final QuizQuestion questionOne = listQuestions[0];
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              style: TextStyle(color: Colors.white),
-              "Question is...",
-            ),
-            AnswerButton(textButton: 'A', task: () {}),
-            AnswerButton(textButton: 'B', task: () {}),
-            AnswerButton(textButton: 'C', task: () {}),
-            AnswerButton(textButton: 'D', task: () {}),
-          ],
+      child: Container(
+        margin: const EdgeInsets.all(25),
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                style: const TextStyle(color: Colors.white, fontSize: 20),
+                textAlign: TextAlign.center,
+                listQuestions[0].questions,
+              ),
+              const Padding(padding: EdgeInsets.only(top: 30)),
+              ...questionOne.shuffleAnswer().map((answer) {
+                return AnswerButton(textButton: answer, task: () {});
+              }),
+            ],
+          ),
         ),
       ),
     );
