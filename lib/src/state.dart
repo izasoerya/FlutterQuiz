@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "background.dart";
 import 'package:quiz_app/src/home/page.dart';
-import "./select_quiz/page.dart";
+import 'quiz/page.dart';
 import "localization/color_pallete.dart";
 
 class QuizPage extends StatefulWidget {
