@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'answer_button.dart';
 import "package:quiz_app/src/quiz/question_answer.dart";
 
 class QuestionPage extends StatefulWidget {
@@ -20,10 +21,10 @@ class _QuestionPage extends State<QuestionPage> {
               style: TextStyle(color: Colors.white),
               "Question is...",
             ),
-            ElevatedButton(onPressed: () {}, child: const Text('Answer 1')),
-            ElevatedButton(onPressed: () {}, child: const Text('Answer 2')),
-            ElevatedButton(onPressed: () {}, child: const Text('Answer 3')),
-            ElevatedButton(onPressed: () {}, child: const Text('Answer 4')),
+            AnswerButton(textButton: 'A', task: () {}),
+            AnswerButton(textButton: 'B', task: () {}),
+            AnswerButton(textButton: 'C', task: () {}),
+            AnswerButton(textButton: 'D', task: () {}),
           ],
         ),
       ),
