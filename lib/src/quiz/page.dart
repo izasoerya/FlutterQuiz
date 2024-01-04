@@ -2,17 +2,31 @@ import "package:flutter/material.dart";
 import 'answer_button.dart';
 import "package:quiz_app/src/quiz/question_answer.dart";
 
+final List<String> quizAnswers = [];
+
 class QuestionPage extends StatefulWidget {
-  const QuestionPage({key}) : super(key: key);
+  const QuestionPage({key, required this.showResult}) : super(key: key);
+  final void Function() showResult;
   @override
   State<QuestionPage> createState() => _QuestionPage();
 }
 
+int iterQuestion = 0;
+
 class _QuestionPage extends State<QuestionPage> {
-  final QuizQuestion questionOne = listQuestions[0];
+  void continueQuestion() {
+    setState(() {
+      if (iterQuestion < listQuestions.length - 1) {
+        iterQuestion++;
+      } else {
+        widget.showResult();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final currentQuestion = listQuestions[iterQuestion];
     return Center(
       child: Container(
         margin: const EdgeInsets.all(25),
@@ -23,13 +37,19 @@ class _QuestionPage extends State<QuestionPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                style: const TextStyle(color: Colors.white, fontSize: 20),
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
-                listQuestions[0].questions,
+                currentQuestion.questions,
               ),
               const Padding(padding: EdgeInsets.only(top: 30)),
-              ...questionOne.shuffleAnswer().map((answer) {
-                return AnswerButton(textButton: answer, task: () {});
+              ...currentQuestion.shuffleAnswer().map((answer) {
+                return AnswerButton(
+                    textButton: answer,
+                    task: continueQuestion,
+                    quizAnswers: quizAnswers);
               }),
             ],
           ),
