@@ -22,7 +22,6 @@ class _QuizPage extends State<QuizPage> {
   void changeState() {
     setState(() {
       currentState = const QuestionPage();
-      print('CHANGE STATE');
     });
   }
 
