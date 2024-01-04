@@ -3,6 +3,7 @@ import "background.dart";
 import 'package:quiz_app/src/home/page.dart';
 import 'quiz/page.dart';
 import "localization/color_pallete.dart";
+import './result/page.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({key}) : super(key: key);
@@ -12,16 +13,22 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPage extends State<QuizPage> {
   Widget? currentState;
-
+  String state = "home";
   @override
   void initState() {
     super.initState();
-    currentState = HomePage(changeState);
+    currentState = HomePage(questionScreen);
   }
 
-  void changeState() {
+  void questionScreen() {
     setState(() {
-      currentState = const QuestionPage();
+      currentState = QuestionPage(showResult: resultScreen);
+    });
+  }
+
+  void resultScreen() {
+    setState(() {
+      currentState = const ResultPage();
     });
   }
 

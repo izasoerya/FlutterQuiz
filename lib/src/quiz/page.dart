@@ -3,8 +3,8 @@ import 'answer_button.dart';
 import "package:quiz_app/src/quiz/question_answer.dart";
 
 class QuestionPage extends StatefulWidget {
-  const QuestionPage({key}) : super(key: key);
-
+  const QuestionPage({key, required this.showResult}) : super(key: key);
+  final void Function() showResult;
   @override
   State<QuestionPage> createState() => _QuestionPage();
 }
@@ -14,9 +14,11 @@ int iterQuestion = 0;
 class _QuestionPage extends State<QuestionPage> {
   void continueQuestion() {
     setState(() {
-      iterQuestion == listQuestions.length - 1
-          ? iterQuestion = 0
-          : iterQuestion++;
+      if (iterQuestion < listQuestions.length - 1) {
+        iterQuestion++;
+      } else {
+        widget.showResult();
+      }
     });
   }
 
