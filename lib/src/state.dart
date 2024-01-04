@@ -1,9 +1,10 @@
 import "package:flutter/material.dart";
-import "background.dart";
-import 'package:quiz_app/src/home/page.dart';
-import 'quiz/page.dart';
 import "localization/color_pallete.dart";
-import './result/page.dart';
+import "background.dart";
+
+import 'home/page.dart';
+import 'quiz/page.dart';
+import 'result/page.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({key}) : super(key: key);
@@ -13,7 +14,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPage extends State<QuizPage> {
   Widget? currentState;
-  String state = "home";
+
   @override
   void initState() {
     super.initState();
@@ -28,7 +29,7 @@ class _QuizPage extends State<QuizPage> {
 
   void resultScreen() {
     setState(() {
-      currentState = const ResultPage();
+      currentState = ResultPage(quizAnswers: quizAnswers);
     });
   }
 

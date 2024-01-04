@@ -2,6 +2,8 @@ import "package:flutter/material.dart";
 import 'answer_button.dart';
 import "package:quiz_app/src/quiz/question_answer.dart";
 
+final List<String> quizAnswers = [];
+
 class QuestionPage extends StatefulWidget {
   const QuestionPage({key, required this.showResult}) : super(key: key);
   final void Function() showResult;
@@ -44,7 +46,10 @@ class _QuestionPage extends State<QuestionPage> {
               ),
               const Padding(padding: EdgeInsets.only(top: 30)),
               ...currentQuestion.shuffleAnswer().map((answer) {
-                return AnswerButton(textButton: answer, task: continueQuestion);
+                return AnswerButton(
+                    textButton: answer,
+                    task: continueQuestion,
+                    quizAnswers: quizAnswers);
               }),
             ],
           ),

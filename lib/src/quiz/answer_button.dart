@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 class AnswerButton extends StatelessWidget {
-  AnswerButton({key, required this.textButton, required this.task})
+  const AnswerButton(
+      {key,
+      required this.textButton,
+      required this.task,
+      required this.quizAnswers})
       : super(key: key);
 
   final String textButton;
   final void Function() task;
+  final List<String> quizAnswers;
 
-  final List<String> selectedAnswer = [];
   void selectAnswer(String answer) {
-    selectedAnswer.add(answer);
+    quizAnswers.add(answer);
   }
 
   @override
@@ -18,7 +22,6 @@ class AnswerButton extends StatelessWidget {
       onPressed: () {
         selectAnswer(textButton);
         task();
-        // print(selectedAnswer);
       },
       style: ElevatedButton.styleFrom(),
       child: Text(
