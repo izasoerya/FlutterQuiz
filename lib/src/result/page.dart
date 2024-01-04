@@ -23,11 +23,26 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final resultQuiz = fetchQuizResult();
+    final int questionIndexSum = resultQuiz.length;
+    final correctAnswerSum = resultQuiz.where((data) {
+      return data['answer'] == data['correct_answer'];
+    }).length;
     return Container(
         margin: const EdgeInsets.all(25),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Center(child: QuizResult(resultQuiz: fetchQuizResult()))],
+          children: [
+            Text(
+              'You have answered $correctAnswerSum of $questionIndexSum questions correctly!',
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            Center(child: QuizResult(resultQuiz: resultQuiz))
+          ],
         ));
   }
 }

@@ -14,12 +14,14 @@ class QuizResult extends StatelessWidget {
             height: 30,
           ),
           Text(((data['index'] as int) + 1).toString()),
-          Column(
-            children: [
-              Text(data['question'] as String),
-              Text(data['answer'] as String),
-              Text(data['correct_answer'] as String),
-            ],
+          Expanded(
+            child: Column(
+              children: [
+                Text(data['question'] as String),
+                Text(data['answer'] as String),
+                Text(data['correct_answer'] as String),
+              ],
+            ),
           )
         ],
       );
