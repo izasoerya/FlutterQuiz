@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'start_button.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage(this.changeState, {key}) : super(key: key);
-  final void Function() changeState;
+  const HomePage({required this.questionScreen, key}) : super(key: key);
+  final void Function() questionScreen;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
             'Learn Flutter the fun way!',
           ),
           const Padding(padding: EdgeInsets.only(top: 25.0)),
-          StartButton(changeState),
+          StartButton(questionScreen),
         ],
       ),
     );

@@ -21,23 +21,29 @@ class DataAnswerQuiz extends StatelessWidget {
                 ),
               ),
             ),
+            const Padding(padding: EdgeInsets.only(bottom: 20)),
           ],
         ),
         Container(
           margin: const EdgeInsets.only(left: 35),
-          alignment: Alignment.topLeft,
           child: Column(children: [
-            Text(
-              data['answer'] as String,
-              style: const TextStyle(
-                  color: Color.fromARGB(255, 255, 0, 242),
-                  fontWeight: FontWeight.bold),
+            Container(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                data['answer'] as String,
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 255, 0, 242),
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-            Text(
-              data['correct_answer'] as String,
-              style: const TextStyle(
-                  color: Color.fromARGB(255, 0, 238, 255),
-                  fontWeight: FontWeight.bold),
+            Container(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                data['correct_answer'] as String,
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 0, 238, 255),
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ]),
         )

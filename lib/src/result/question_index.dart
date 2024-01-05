@@ -5,6 +5,10 @@ class QuestionIndex extends StatelessWidget {
   const QuestionIndex({Key? key, required this.data}) : super(key: key);
   final Map<String, Object> data;
 
+  MaterialColor checkAnswer() {
+    return data['answer'] == data['correct_answer'] ? Colors.green : Colors.red;
+  }
+
   @override
   Widget build(BuildContext context) {
     return RoundedBackgroundText(
@@ -12,7 +16,7 @@ class QuestionIndex extends StatelessWidget {
       style: const TextStyle(
           color: Color.fromARGB(255, 142, 45, 226),
           fontWeight: FontWeight.bold,
-          fontSize: 24,
+          fontSize: 21,
           shadows: [
             Shadow(
               blurRadius: 2.0,
@@ -20,7 +24,7 @@ class QuestionIndex extends StatelessWidget {
               offset: Offset(1.0, 1.0),
             ),
           ]),
-      backgroundColor: Colors.green,
+      backgroundColor: checkAnswer(),
       innerRadius: 55,
       outerRadius: 50,
     );
