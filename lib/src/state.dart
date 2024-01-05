@@ -18,7 +18,7 @@ class _QuizPage extends State<QuizPage> {
   @override
   void initState() {
     super.initState();
-    currentState = HomePage(questionScreen);
+    currentState = HomePage(questionScreen: questionScreen);
   }
 
   void questionScreen() {

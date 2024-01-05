@@ -16,7 +16,7 @@ class QuestionIndex extends StatelessWidget {
       style: const TextStyle(
           color: Color.fromARGB(255, 142, 45, 226),
           fontWeight: FontWeight.bold,
-          fontSize: 24,
+          fontSize: 21,
           shadows: [
             Shadow(
               blurRadius: 2.0,
