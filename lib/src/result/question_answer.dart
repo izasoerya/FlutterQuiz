@@ -25,7 +25,7 @@ class DataAnswerQuiz extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.only(left: 35),
-          alignment: Alignment.topLeft,
+          alignment: Alignment.bottomLeft,
           child: Column(children: [
             Text(
               data['answer'] as String,
