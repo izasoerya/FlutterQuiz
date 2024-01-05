@@ -12,20 +12,19 @@ class QuizResult extends StatelessWidget {
       height: 300,
       child: SingleChildScrollView(
         child: Column(
-            mainAxisSize: MainAxisSize.max,
             children: resultQuiz.map((data) {
-              return Row(
-                children: [
-                  const SizedBox(
-                    height: 75,
-                  ),
-                  QuestionIndex(data: data),
-                  Expanded(
-                    child: DataAnswerQuiz(data: data),
-                  )
-                ],
-              );
-            }).toList()),
+          return Row(
+            children: [
+              const SizedBox(
+                height: 75,
+              ),
+              QuestionIndex(data: data),
+              Expanded(
+                child: DataAnswerQuiz(data: data),
+              )
+            ],
+          );
+        }).toList()),
       ),
     );
   }
