@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:restart_app/restart_app.dart';
 import "localization/color_pallete.dart";
 import "background.dart";
 
@@ -29,7 +30,16 @@ class _QuizPage extends State<QuizPage> {
 
   void resultScreen() {
     setState(() {
-      currentState = ResultPage(quizAnswers: quizAnswers);
+      currentState = ResultPage(
+        quizAnswers: quizAnswers,
+        restartQuiz: startScreen,
+      );
+    });
+  }
+
+  void startScreen() {
+    setState(() {
+      Restart.restartApp(webOrigin: null);
     });
   }
 
