@@ -10,10 +10,19 @@ class QuestionIndex extends StatelessWidget {
     return RoundedBackgroundText(
       ((data['index'] as int) + 1).toString(),
       style: const TextStyle(
-          color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
+          color: Color.fromARGB(255, 142, 45, 226),
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+          shadows: [
+            Shadow(
+              blurRadius: 2.0,
+              color: Colors.black,
+              offset: Offset(1.0, 1.0),
+            ),
+          ]),
       backgroundColor: Colors.green,
-      innerRadius: 150,
-      outerRadius: 100,
+      innerRadius: 55,
+      outerRadius: 50,
     );
   }
 }

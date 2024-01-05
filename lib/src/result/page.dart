@@ -28,6 +28,7 @@ class ResultPage extends StatelessWidget {
     final correctAnswerSum = resultQuiz.where((data) {
       return data['answer'] == data['correct_answer'];
     }).length;
+
     return Container(
         margin: const EdgeInsets.all(25),
         child: Column(
@@ -41,7 +42,7 @@ class ResultPage extends StatelessWidget {
                   fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            Center(child: QuizResult(resultQuiz: resultQuiz))
+            QuizResult(resultQuiz: resultQuiz)
           ],
         ));
   }
