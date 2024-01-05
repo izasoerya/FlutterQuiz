@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/src/result/restart_button.dart';
 import '../quiz/question_answer.dart';
 import 'package:quiz_app/src/result/quiz_result.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({key, required this.quizAnswers}) : super(key: key);
+  const ResultPage({key, required this.quizAnswers, required this.restartQuiz})
+      : super(key: key);
   final List<String> quizAnswers;
+  final void Function() restartQuiz;
 
   List<Map<String, Object>> fetchQuizResult() {
     final List<Map<String, Object>> quizResult = [];
@@ -42,7 +45,11 @@ class ResultPage extends StatelessWidget {
                   fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            QuizResult(resultQuiz: resultQuiz)
+            QuizResult(resultQuiz: resultQuiz),
+            const SizedBox(
+              height: 20,
+            ),
+            RestartButton(onPressed: restartQuiz),
           ],
         ));
   }
